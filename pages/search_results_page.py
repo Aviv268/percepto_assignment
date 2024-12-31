@@ -2,6 +2,7 @@ import allure
 import pytest_check as check
 from selenium.webdriver.common.by import By
 from .base_page import BasePage
+from .product_page import ProductPage
 
 
 class SearchResultsPage(BasePage):
@@ -38,3 +39,4 @@ class SearchResultsPage(BasePage):
         if len(items) < 3:
             raise AssertionError("Fewer than 3 products found.")
         items[2].click()
+        return ProductPage(self.driver)

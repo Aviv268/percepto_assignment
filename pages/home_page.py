@@ -1,7 +1,8 @@
-import logging
 from selenium.webdriver.common.by import By
+
 from .base_page import BasePage
 from .login_page import LoginPage
+from .search_results_page import SearchResultsPage
 
 
 class HomePage(BasePage):
@@ -26,3 +27,4 @@ class HomePage(BasePage):
         self.wait_for_element_invisible(self.LOADER, 5)
         self.click(self.SEARCH_BUTTON)
         self.type_text(self.SEARCH_BAR, text)
+        return SearchResultsPage(self.driver)
